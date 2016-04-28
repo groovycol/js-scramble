@@ -8,7 +8,7 @@
 
     <script>
         var WORDS     = ["booger", "apple", "hackbright", "mango"];
-        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+        // var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
 
         var playing = true;
 
@@ -20,8 +20,23 @@
 
             var myWord = WORDS[myNumber];
 
+            function  scramble_word() {
+                var letters = myWord.split("");
+                var length = letters.length;
+
+                for(var i=length-1; i>0; i--) {
+                    var j = Math.floor(Math.random() * (i+1));
+                    var temp = letters[i];
+                    letters[i] = letters[j];
+                    letters[j] = temp;
+                }
+            return letters.join("");
+            }
+
+            scrambledWord = scramble_word();
+
             // Grab the corresponding scrambled word from the SCRAMBLED array
-            var scrambledWord = SCRAMBLED[myNumber];
+            // var scrambledWord = SCRAMBLED[myNumber];
 
             // prompt the user to guess the original word when given the scrambled word
             
@@ -52,3 +67,7 @@
     
 </body>
 </html>
+
+
+
+
